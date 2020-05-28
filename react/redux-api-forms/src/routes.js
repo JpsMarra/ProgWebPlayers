@@ -4,6 +4,7 @@ import HomePage from './pages/homePage';
 import ListaJogadores from './pages/listaJogadores';
 import InfoJogador from './pages/infoJogador';
 import FormJogadores from './pages/formsJogadores';
+import FormEditJogadores from './pages/FormEditJogadores';
 
 class Routes extends React.Component {
     render() {
@@ -13,7 +14,7 @@ class Routes extends React.Component {
                     <Route path='/' exact component={HomePage} />
                     <Route path='/jogadores' exact component={ListaJogadores} />
                     <Route path='/jogadores/novo' exact component={FormJogadores} />
-                    <Route path='/jogadores/edit/:id' exact component={FormJogadores} />
+                    <Route path='/jogadores/edit/:id' exact component={FormEditJogadores} />
                     <Route path='/jogadores/:id' exact component={InfoJogador} />
                 </Switch>
             </BrowserRouter>

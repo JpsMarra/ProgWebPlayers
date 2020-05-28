@@ -34,6 +34,20 @@ export const gravarJogadorFailure = (error) => {
         payload: { error }
     }
 }
+
+export const editJogadorSuccess = () => {
+    return {
+        type: ACTION_TYPES_JOGADORES.EDIT_JOGADOR_SUCCESS
+    }
+}
+
+export const editJogadorFailure = (error) => {
+    return {
+        type: ACTION_TYPES_JOGADORES.EDIT_JOGADOR_SUCCESS,
+        payload: { error }
+    }
+}
+
 export function listarJogadores() {
     return dispatch => {
         dispatch(listarJogadoresBegin())
@@ -63,6 +77,26 @@ export function gravarJogador(data, props) {
     
 
     api.post('/players', data)
+        .then(response => {
+            console.log(response);
+            props.history.goBack();
+        })
+        .catch(error => {
+            console.log(error);
+
+        })
+
+
+}
+
+export function editJogador(data, props) {
+    data.team_id = 1;
+    console.log(data);
+    console.log(props);
+    
+    
+
+    api.put('/players', data)
         .then(response => {
             console.log(response);
             props.history.goBack();
